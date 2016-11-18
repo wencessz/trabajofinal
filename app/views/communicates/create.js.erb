@@ -1,0 +1,7 @@
+<% if @communicate.errors.any? || @communicate.errors.any? %>
+alert("Ocurrio un error.")
+<% else %>
+  $("#communicate_messages").fadeIn(400, function() {
+    $(this).html("<%= escape_javascript(render 'communicate_message') %>");
+  });
+<% end %>

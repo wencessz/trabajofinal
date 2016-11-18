@@ -1,0 +1,9 @@
+<div class="row">
+<%= render "application/avisos_grid", avisos: @avisos %>
+</div>
+
+  <div class="row">
+    <div id="paginator" class="col-md-12">
+      <%= paginate @avisos, :theme => "twitter-bootstrap-3", :pagination_class => "pagination-sm" %>
+    </div>
+  </div>

@@ -1,0 +1,65 @@
+<nav class="navbar navbar-default navbar-fixed-top add_shadow">
+  <div class="container">
+    <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+        <%= link_to root_path, :class => 'navbar-brand' do %>
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span> &nbsp; SuperAvisos
+        <% end %>
+
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+    <ul class="nav navbar-nav navbar-left">
+
+      <li>
+        <%= link_to avisos_path do %>
+        <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> &nbsp; Ver avisos
+        <% end %>
+      </li>
+
+      <% if user_signed_in? && (current_user.has_role? :publisher) %>
+      <li>
+        <%= link_to new_aviso_path do %>
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> &nbsp; Publicar
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+      <% if current_user.has_role? :publisher %>
+      <li>
+        <%= link_to current_user do %>
+        <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> &nbsp; Mis Avisos
+        <% end %>
+      </li>
+      <% end %>
+      <li>
+        <%= link_to edit_user_path(current_user) do %>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; Mis Datos
+        <% end %>
+      </li>
+      <li>
+        <%= link_to 'Salir', destroy_user_session_path, :method => :delete %>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to 'Entrar', new_user_session_path %>
+      </li>
+      <li>
+        <%= link_to 'Nueva Cuenta', new_user_registration_path %>
+      </li>
+      <% end %>
+    </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>

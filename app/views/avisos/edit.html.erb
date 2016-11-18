@@ -1,0 +1,12 @@
+<%= content_tag(:h3, "Redactar Aviso #{@aviso.title}") %>
+
+<%= render 'form', aviso: @aviso %>
+
+<div class="text-center">
+<%= link_to 'Ver Aviso', @aviso, :class => "btn btn-sm btn-default" %> <%= link_to 'Volver', avisos_path, :class => "btn btn-sm btn-default" %>
+</div>
+
+
+<div class="text-center add_more_separation">
+  <p>Si desea eliminar este aviso, hagá <%= link_to 'click aquí', @aviso, method: :delete, data: { confirm: 'Esta seguro?' }, :class => "btn btn-xs btn-danger" %>. <strong>Acción Irreversible!</strong></p>
+</div>

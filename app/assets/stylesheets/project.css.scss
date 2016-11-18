@@ -1,0 +1,20 @@
+@import "bootswatch/flatly/variables";
+@import "bootstrap-sprockets";
+
+
+// Cambiar variables aquí
+
+// Importar bootstrap
+@import "bootstrap";
+
+// Customizar CSS
+body {
+  padding-top: 80px;
+}
+
+.add_more_separation {
+  margin-top: 50px;
+}
+
+// Por último, agregar bootstrap theme
+@import "bootswatch/flatly/bootswatch";

@@ -1,0 +1,17 @@
+<% avisos.each do |aviso| %>
+  <div class="col-md-4">
+      <%#= image_tag aviso.photo.url(:medium) %>
+      <%= image_tag(aviso.photo.url(:medium) , :alt => "", :width => 280, :height => 220) %>
+
+      <div class="caption">
+        <%= content_tag(:h5, aviso.title) %>
+
+        <p>
+          <%= link_to "Contactar", aviso, :class => "btn btn-sm btn-default" %>
+          <% if current_user.present?  %>
+          <%= link_to 'Editar', edit_aviso_path(aviso), :class => "btn btn-sm btn-danger" if current_user.has_role? :publisher %>
+          <% end %>
+        </p>
+      </div>
+  </div>
+<% end %>

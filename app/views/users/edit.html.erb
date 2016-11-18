@@ -1,0 +1,13 @@
+<%= content_tag(:h3, "Bienvenido,  #{@user.name}") %>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= render 'form', user: @user %>
+  </div>
+</div>
+
+<% if current_user.has_role? :publisher %>
+<div class="text-center add_more_separation">
+ <%= link_to 'Mis Avisos', @user, :class => "btn btn-sm btn-primary" %>
+</div>
+<% end %>

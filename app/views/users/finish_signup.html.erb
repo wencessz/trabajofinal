@@ -1,0 +1,34 @@
+<h3>Terminar registro:</h3>
+<%= form_for(current_user, :as => 'user', :url => finish_signup_path(current_user), :html => { role: 'form', :class => "form-horizontal" }) do |f| %>
+    <% if @show_errors && current_user.errors.any? %>
+      <div id="error_explanation">
+        <% current_user.errors.full_messages.each do |msg| %>
+          <%= msg %><br>
+        <% end %>
+      </div>
+    <% end %>
+
+  <fieldset>
+    <legend class="text-left">Agregar Email:</legend>
+
+    <div class="form-group">
+      <%= f.label :email, "Email:", :class => "control-label col-md-3" %>
+      <div class="col-md-9">
+        <%= f.email_field :email, :autofocus => true, :value => '', :class => "form-control" %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Seleccionar tipo de cuenta:</legend>
+
+    <div class="form-group">
+    <%= f.collection_select :roles, User::ROLES, :to_s, :humanize, {}, {:class => "form-control"} %>
+    </div>
+  </fieldset>
+
+    <div class="actions">
+      <%= f.submit 'Continuar', :class => 'btn btn-primary' %>
+    </div>
+
+<% end %>

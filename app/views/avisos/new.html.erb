@@ -1,0 +1,7 @@
+<%= content_tag(:h3, "Crear nuevo aviso") %>
+
+<%= render 'form', aviso: @aviso %>
+
+<div class="text-center">
+  <%= link_to 'Volver', avisos_path, :class => "btn btn-sm btn-default" %>
+</div>

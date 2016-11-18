@@ -1,0 +1,57 @@
+<%= form_for aviso, :html => { :class => "form-horizontal", :multipart => true } do |f| %>
+  <% if aviso.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(aviso.errors.count, "error") %> prohibited
+      this article from being saved:</h2>
+    <ul>
+    <% aviso.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+
+  <fieldset>
+    <legend class="text-center">Introduzcá la descripción:</legend>
+
+    <div class="form-group">
+      <%= f.label :title, "Que vendes:", :class => "control-label col-md-3" %>
+      <div class="col-md-9">
+        <%= f.text_field :title, :class => "form-control", :placeholder => "P.e., Loft en Palermo" %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label :description, "Descripción:", :class => "control-label col-md-3" %>
+      <div class="col-md-9">
+      <%= f.text_area :description, :rows => 6, :class => "form-control wysihtml5" %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="select" class="col-md-3 control-label">Seleccioná tipo de inmueble:</label>
+      <div class="col-md-9">
+      <%= f.collection_select(:category_id, categories_list, :id, :name, {}, { class: "form-control" }) %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :photo, "Foto del aviso:", :class => "control-label col-md-3" %>
+      <div class="col-md-9">
+        <%= f.file_field :photo %>
+      </div>
+    </div>
+
+    <!-- Form actions -->
+    <div class="form-group">
+      <div class="col-md-12 text-center">
+      <%= f.submit "Publicar Aviso", :class => "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+
+
+  </fieldset>
+<% end %>

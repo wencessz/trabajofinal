@@ -1,0 +1,8 @@
+<ul class="list-group">
+<% categories_list.each do |cat| %>
+  <li class="list-group-item">
+    <%= content_tag(:span, cat.avisos.count, :class => "badge") %>
+    <%= link_to cat.name.capitalize, category_path(cat) %>
+  </li>
+<% end %>
+</ul>

@@ -1,0 +1,19 @@
+<%= content_tag(:h3, "#{@aviso.title}") %>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag(@aviso.photo.url(:medium) , :alt => "", :width => 320, :height => 240) %>
+  </div>
+
+  <div class="col-md-7 col-md-offset-1">
+    <%= @aviso.description %>
+
+    <% if user_signed_in? && (current_user.has_role? :publisher) %>
+    <p><%= link_to 'Redactar', edit_aviso_path(@aviso), :class => "btn btn-sm btn-danger" %></p>
+    <% end %>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+<%= render "avisos/communicate" if @aviso.user_id != current_user.id %>
+<% end %>

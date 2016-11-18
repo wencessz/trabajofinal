@@ -1,0 +1,6 @@
+<%= content_tag(:h3, "Avisos de  #{@user.name}") %>
+<%= content_tag(:h5, "Localidad: #{@user.location}") %>
+
+<div class="row">
+<%= render "application/avisos_grid", avisos: @avisos %>
+</div>

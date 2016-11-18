@@ -1,0 +1,48 @@
+<%= form_for user, :html => { :class => "form-horizontal" } do |f| %>
+  <% if user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(user.errors.count, "error") %> prohibited
+      this article from being saved:</h2>
+    <ul>
+    <% user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+
+  <fieldset>
+    <legend class="text-left">Actualizar mis datos:</legend>
+
+    <div class="form-group">
+      <%= f.label :name, "Nombre completo:", :class => "control-label col-md-3" %>
+      <div class="col-md-9">
+        <%= f.text_field :name, :class => "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :phone, "Telefono de contacto:", :class => "control-label col-md-3" %>
+      <div class="col-md-9">
+        <%= f.text_field :phone, :class => "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :location, "Localidad:", :class => "control-label col-md-3" %>
+      <div class="col-md-9">
+        <%= f.text_field :location, :class => "form-control" %>
+      </div>
+    </div>
+
+    <!-- Form actions -->
+    <div class="form-group">
+      <div class="col-md-12 text-center">
+      <%= f.submit "Actualizar mis datos", :class => "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+
+
+  </fieldset>
+<% end %>
