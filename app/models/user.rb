@@ -7,17 +7,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :lastseenable, :omniauthable, :omniauth_providers => [:twitter,:facebook]
+         :lastseenable, :omniauthable, :omniauth_providers => [:twitter]
 
   has_many :avisos
 
   ROLES = %w[publisher hunter]
 
 
-  validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
-  validates :name, :email, presence: true
-  validates :name, format: { with: /\A[a-zA-Z]+\z/,
-    message: "Se admiten solamente caracteres númericos" }
+  #validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+  #validates :name, :email, presence: true
+  #validates :name, format: { with: /\A[a-zA-Z]+\z/,
+  #  message: "Se admiten solamente caracteres númericos" }
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
@@ -45,7 +45,8 @@ class User < ApplicationRecord
         user = User.new(
           name: auth.extra.raw_info.name,
           #username: auth.info.nickname || auth.uid,
-          email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+          email: email ? email : "#{TEMP_EMAIL_PREFIX}",
+          #email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
         )
         #user.skip_confirmation!

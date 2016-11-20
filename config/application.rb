@@ -12,9 +12,9 @@ module Wencessz
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.encoding = "utf-8"
+    #config.encoding = "utf-8"
 
-    config.i18n.default_locale = :es
+    #config.i18n.default_locale = :en
 
     config.paperclip_defaults = {
         styles: { :large => "500x470>", :medium => "300x220#", :thumb => "100x100#" },
