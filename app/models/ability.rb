@@ -7,7 +7,10 @@ class Ability
     alias_action :create, :read, :update, :destroy, :to => :crud
     alias_action :read, :update, :destroy, :to => :owncrud
 
-    if user.has_role? :publisher
+    if user.has_role? :admin
+      can :manage, :all
+
+    elsif user.has_role? :publisher
       can :owncrud, User do |user|
         user.try(:owner) == user
       end
