@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   resources :avisos
   resources :communicates, only: [:new, :create, :show]
 
+  get 'admin/users', as: 'admin_users'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
