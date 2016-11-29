@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   has_many :avisos
 
-  ROLES = %w[publisher hunter]
+  ROLES = %w[publisher hunter admin]
 
 
   #validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update

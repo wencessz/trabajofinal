@@ -16,12 +16,12 @@ Category.create(name: 'Local Comercial')
 Category.create(name: 'Oficina')
 
 
- #User.create(
- #  name: 'Administrador',
- #  phone: '123456789',
+# User.create(
+#   name: 'Administrador',
+#   phone: '123456789',
 #   email: 'admin@admin.com',
 #   password: '12345678',
-#   location: 'algun #lugarr																'
+#   location: 'algun lugar'
 # )
 
 # 2.3.0 :002 > user = User.new
