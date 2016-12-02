@@ -7,7 +7,7 @@ class AvisosController < ApplicationController
   # GET /avisos
   # GET /avisos.json
   def index
-    @avisos = Aviso.all.page(params[:page])
+    @avisos = Aviso.page(params[:page])
   end
 
   # GET /avisos/1

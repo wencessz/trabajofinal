@@ -2,7 +2,8 @@ require 'test_helper'
 
 class AvisosControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @aviso = avisos(:one)
+    @aviso = avisos(:aviso1, :aviso2)
+    sign_in users(:admin)
   end
 
   test "should get index" do
@@ -17,7 +18,7 @@ class AvisosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create aviso" do
     assert_difference('Aviso.count') do
-      post avisos_url, params: { aviso: {  } }
+       post avisos_url, params: { aviso: { title: "Departamento 1", description: "No posee descripcion", active: 1, user_id: 2, category_id: 1 } }
     end
 
     assert_redirected_to aviso_url(Aviso.last)
@@ -34,7 +35,7 @@ class AvisosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update aviso" do
-    patch aviso_url(@aviso), params: { aviso: {  } }
+    patch aviso_url(@aviso), params: { aviso: { title: "Departamento 1", description: "No posee descripcion", active: 1, user_id: 2, category_id: 1 } }
     assert_redirected_to aviso_url(@aviso)
   end
 

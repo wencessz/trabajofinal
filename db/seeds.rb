@@ -21,7 +21,7 @@ Category.create(name: 'Oficina')
 #   phone: '123456789',
 #   email: 'admin@admin.com',
 #   password: '12345678',
-#   location: 'algun lugar'
+#   location: 'Somewhere In Galactic'
 # )
 
 # 2.3.0 :002 > user = User.new
